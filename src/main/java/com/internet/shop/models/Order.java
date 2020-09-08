@@ -34,4 +34,11 @@ public class Order {
     public void setUserId(Long userId) {
         this.userId = userId;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" + "id=" + id
+                + ", products=" + products
+                + ", userId=" + userId + '}';
+    }
 }
