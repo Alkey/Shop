@@ -3,12 +3,6 @@ package com.internet.shop.dao;
 import com.internet.shop.models.ShoppingCart;
 import java.util.Optional;
 
-public interface ShoppingCartDao {
-    ShoppingCart create(ShoppingCart shoppingCart);
-
+public interface ShoppingCartDao extends GenericDao<ShoppingCart, Long> {
     Optional<ShoppingCart> getByUser(Long id);
-
-    ShoppingCart update(ShoppingCart shoppingCart);
-
-    boolean delete(Long id);
 }
