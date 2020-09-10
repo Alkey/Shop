@@ -4,6 +4,20 @@
     <title>Title</title>
   </head>
   <body>
-  <h1>Hello world!</h1>
+  <form action="${pageContext.request.contextPath}/user/registration" method="get">
+    <input type="submit" value="Registration" />
+  </form>
+  <form action="${pageContext.request.contextPath}/user/all" method="get">
+    <input type="submit" value="User List" />
+  </form>
+  <form action="${pageContext.request.contextPath}/products/add" method="get">
+    <input type="submit" value="Add Product" />
+  </form>
+  <form action="${pageContext.request.contextPath}/product/all" method="get">
+    <input type="submit" value="Product List" />
+  </form>
+  <form action="${pageContext.request.contextPath}/shopping-carts/products" method="get">
+    <input type="submit" value="Shopping Cart" />
+  </form>
   </body>
 </html>
