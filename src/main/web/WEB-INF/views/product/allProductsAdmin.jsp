@@ -22,13 +22,16 @@
                 <c:out value="${product.price}"/>
             </td>
             <td>
-                <form method="post" action="${pageContext.request.contextPath}/shopping-carts/products/add">
+                <form method="post" action="${pageContext.request.contextPath}/product/all/admin/delete">
                     <input type="hidden" name="id" value="${product.id}">
-                    <button type="submit">Buy</button>
+                    <button type="submit">Delete</button>
                 </form>
             </td>
         </tr>
     </c:forEach>
 </table>
+<form action="${pageContext.request.contextPath}/products/add" method="get">
+    <input type="submit" value="Add Product"/>
+</form>
 </body>
 </html>
