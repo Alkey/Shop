@@ -1,4 +1,4 @@
-package com.internet.shop.controllers;
+package com.internet.shop.controllers.order;
 
 import com.internet.shop.lib.Injector;
 import com.internet.shop.service.OrderService;
@@ -22,6 +22,5 @@ public class CompleteOrderController extends HttpServlet {
         orderService.completeOrder(shoppingCartService
                 .getByUserId(USER_ID));
         resp.sendRedirect("/order/all-orders");
-
     }
 }

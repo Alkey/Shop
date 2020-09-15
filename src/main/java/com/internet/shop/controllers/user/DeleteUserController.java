@@ -1,25 +1,22 @@
-package com.internet.shop.controllers;
+package com.internet.shop.controllers.user;
 
 import com.internet.shop.lib.Injector;
-import com.internet.shop.models.User;
 import com.internet.shop.service.UserService;
 import java.io.IOException;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class GetAllUsersController extends HttpServlet {
+public class DeleteUserController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("com.internet.shop");
     private UserService userService =
             (UserService) injector.getInstance(UserService.class);
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        List<User> users = userService.getAll();
-        req.setAttribute("users", users);
-        req.getRequestDispatcher("/WEB-INF/views/user/allUsers.jsp").forward(req, resp);
+        userService.delete(Long.parseLong(req.getParameter("id")));
+        resp.sendRedirect("/user/all");
     }
 }
