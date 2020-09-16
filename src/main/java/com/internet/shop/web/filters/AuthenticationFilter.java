@@ -1,5 +1,6 @@
 package com.internet.shop.web.filters;
 
+import com.internet.shop.controllers.LoginController;
 import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -11,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class AuthenticationFilter implements Filter {
-    private static final String USER_ID = "user_id";
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -27,7 +27,7 @@ public class AuthenticationFilter implements Filter {
             chain.doFilter(req, resp);
             return;
         }
-        Long userId = (Long) req.getSession().getAttribute(USER_ID);
+        Long userId = (Long) req.getSession().getAttribute(LoginController.USER_ID);
         if (userId == null) {
             resp.sendRedirect("/login");
             return;

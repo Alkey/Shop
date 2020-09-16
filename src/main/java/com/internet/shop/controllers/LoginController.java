@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class LoginController extends HttpServlet {
-    private static final String USER_ID = "user_id";
+    public static final String USER_ID = "user_id";
     private static final Injector injector = Injector.getInstance("com.internet.shop");
     private AuthenticationService authenticationService =
             (AuthenticationService) injector.getInstance(AuthenticationService.class);
