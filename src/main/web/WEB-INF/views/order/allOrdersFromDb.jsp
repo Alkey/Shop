@@ -19,6 +19,10 @@
                     <input type="hidden" name="id" value="${order.id}">
                     <button type="submit">Delete</button>
                 </form>
+                <form method="get" action="${pageContext.request.contextPath}/order/order-products">
+                    <input type="hidden" name="id" value="${order.id}">
+                    <button type="submit">Details</button>
+                </form>
             </td>
         </tr>
     </c:forEach>

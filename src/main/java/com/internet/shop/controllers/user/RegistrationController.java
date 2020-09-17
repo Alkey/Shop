@@ -1,11 +1,13 @@
 package com.internet.shop.controllers.user;
 
 import com.internet.shop.lib.Injector;
+import com.internet.shop.models.Role;
 import com.internet.shop.models.ShoppingCart;
 import com.internet.shop.models.User;
 import com.internet.shop.service.ShoppingCartService;
 import com.internet.shop.service.UserService;
 import java.io.IOException;
+import java.util.Set;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -35,7 +37,7 @@ public class RegistrationController extends HttpServlet {
         } else if (password.equals(passwordRepeat)) {
             userService.create(new User(req.getParameter("name"),
                     login,
-                    password));
+                    password, Set.of(Role.of("USER"))));
             shoppingCartService.create(new ShoppingCart(userService
                     .getByLogin(login).get().getId()));
             resp.sendRedirect(req.getContextPath() + "/");
