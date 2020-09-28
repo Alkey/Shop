@@ -8,6 +8,9 @@ public class ShoppingCart {
     private List<Product> products;
     private Long userId;
 
+    public ShoppingCart() {
+    }
+
     public ShoppingCart(Long userId) {
         this.userId = userId;
         products = new ArrayList<>();
@@ -23,6 +26,10 @@ public class ShoppingCart {
 
     public List<Product> getProducts() {
         return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 
     public Long getUserId() {

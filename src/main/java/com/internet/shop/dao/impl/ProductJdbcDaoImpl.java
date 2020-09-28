@@ -44,7 +44,7 @@ public class ProductJdbcDaoImpl implements ProductDao {
             while (resultSet.next()) {
                 product = getProductFromDb(resultSet);
             }
-            return Optional.of(product);
+            return Optional.ofNullable(product);
         } catch (SQLException e) {
             throw new DataProcessingException("Can't get product with this ID: " + id, e);
         }
