@@ -1,6 +1,7 @@
 package com.internet.shop.service.impl;
 
 import com.internet.shop.dao.UserDao;
+import com.internet.shop.dao.util.HashUtil;
 import com.internet.shop.lib.Inject;
 import com.internet.shop.lib.Service;
 import com.internet.shop.models.User;
@@ -15,6 +16,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User create(User user) {
+        byte[] salt = HashUtil.getSalt();
+        user.setSalt(salt);
+        user.setPassword(HashUtil.hashPassword(user.getPassword(), salt));
         userDao.create(user);
         return user;
     }

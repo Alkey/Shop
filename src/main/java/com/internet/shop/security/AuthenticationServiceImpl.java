@@ -1,5 +1,6 @@
 package com.internet.shop.security;
 
+import com.internet.shop.dao.util.HashUtil;
 import com.internet.shop.exceptions.AuthenticationException;
 import com.internet.shop.lib.Inject;
 import com.internet.shop.lib.Service;
@@ -15,9 +16,13 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     public User login(String login, String password) throws AuthenticationException {
         User user = userService.getByLogin(login).orElseThrow(() ->
                 new AuthenticationException("Incorrect username"));
-        if (user.getPassword().equals(password)) {
+        if (isValid(user.getPassword(), password, user.getSalt())) {
             return user;
         }
         throw new AuthenticationException("Incorrect password");
+    }
+
+    private boolean isValid(String userPassword, String password, byte[] salt) {
+        return userPassword.equals(HashUtil.hashPassword(password, salt));
     }
 }

@@ -59,6 +59,8 @@ public class OrderJdbcDaoImpl implements OrderDao {
             if (resultSet.next()) {
                 order.setId(resultSet.getLong("order_id"));
                 order.setUserId(resultSet.getLong("user_id"));
+            } else {
+                return Optional.empty();
             }
         } catch (SQLException e) {
             throw new DataProcessingException("Can't get order by ID: " + id, e);

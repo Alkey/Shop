@@ -34,12 +34,13 @@ public class UserJdbcDaoImpl implements UserDao {
 
     @Override
     public User create(User user) {
-        String query = "INSERT INTO users (name, login, password) VALUES (?, ?, ?)";
+        String query = "INSERT INTO users (name, login, password, salt) VALUES (?, ?, ?, ?)";
         try (PreparedStatement statement = ConnectionUtil.getConnection()
                 .prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
             statement.setString(1, user.getName());
             statement.setString(2, user.getLogin());
             statement.setString(3, user.getPassword());
+            statement.setBytes(4, user.getSalt());
             statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
             if (resultSet.next()) {
@@ -70,13 +71,14 @@ public class UserJdbcDaoImpl implements UserDao {
     @Override
     public User update(User user) {
         deleteUserRoles(user.getId());
-        String query = "UPDATE users SET name = ?, login = ?, password = ? "
+        String query = "UPDATE users SET name = ?, login = ?, password = ?, salt = ? "
                 + "WHERE user_id = ? AND deleted = false";
         try (PreparedStatement statement = ConnectionUtil.getConnection().prepareStatement(query)) {
             statement.setString(1, user.getName());
             statement.setString(2, user.getLogin());
             statement.setString(3, user.getPassword());
-            statement.setLong(4, user.getId());
+            statement.setBytes(4, user.getSalt());
+            statement.setLong(5, user.getId());
             statement.executeUpdate();
         } catch (SQLException e) {
             throw new DataProcessingException("Can't update user", e);
@@ -111,6 +113,7 @@ public class UserJdbcDaoImpl implements UserDao {
                 user.setName(resultSet.getString("name"));
                 user.setLogin(resultSet.getString("login"));
                 user.setPassword(resultSet.getString("password"));
+                user.setSalt(resultSet.getBytes("salt"));
                 users.add(user);
             }
         } catch (SQLException e) {
@@ -160,6 +163,7 @@ public class UserJdbcDaoImpl implements UserDao {
             user.setName(resultSet.getString("name"));
             user.setLogin(resultSet.getString("login"));
             user.setPassword(resultSet.getString("password"));
+            user.setSalt(resultSet.getBytes("salt"));
             Role role = Role.of(resultSet.getString("role_name"));
             role.setId(resultSet.getLong("role_id"));
             roles.add(role);

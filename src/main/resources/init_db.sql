@@ -24,6 +24,7 @@ create table if not exists users
 	login varchar(256) not null,
 	password varchar(256) not null,
 	deleted tinyint(1) default 0 not null,
+	salt varbinary(500) not null,
 	constraint users_login_uindex
 		unique (login),
 	constraint users_name_uindex
