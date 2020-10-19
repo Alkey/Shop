@@ -1,7 +1,7 @@
 package com.internet.shop.dao.impl;
 
 import com.internet.shop.dao.ProductDao;
-import com.internet.shop.dao.util.ConnectionUtil;
+import com.internet.shop.util.ConnectionUtil;
 import com.internet.shop.exceptions.DataProcessingException;
 import com.internet.shop.lib.Dao;
 import com.internet.shop.models.Product;

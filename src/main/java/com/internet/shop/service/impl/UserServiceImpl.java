@@ -1,7 +1,7 @@
 package com.internet.shop.service.impl;
 
 import com.internet.shop.dao.UserDao;
-import com.internet.shop.dao.util.HashUtil;
+import com.internet.shop.util.HashUtil;
 import com.internet.shop.lib.Inject;
 import com.internet.shop.lib.Service;
 import com.internet.shop.models.User;

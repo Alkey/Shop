@@ -1,4 +1,4 @@
-package com.internet.shop.dao.util;
+package com.internet.shop.util;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

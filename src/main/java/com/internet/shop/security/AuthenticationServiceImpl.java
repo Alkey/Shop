@@ -1,6 +1,6 @@
 package com.internet.shop.security;
 
-import com.internet.shop.dao.util.HashUtil;
+import com.internet.shop.util.HashUtil;
 import com.internet.shop.exceptions.AuthenticationException;
 import com.internet.shop.lib.Inject;
 import com.internet.shop.lib.Service;
