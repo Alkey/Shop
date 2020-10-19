@@ -24,7 +24,7 @@
 * JSTL;
 
 
-##To run a project on your local machine:
+## To run a project on your local machine:
 * Clone this repository first;
 * MySQL, Tomcat Server must be installed;
 * Initialize the database (example here: init_db.sql);
