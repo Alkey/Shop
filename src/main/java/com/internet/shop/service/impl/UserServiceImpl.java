@@ -1,11 +1,11 @@
 package com.internet.shop.service.impl;
 
 import com.internet.shop.dao.UserDao;
-import com.internet.shop.util.HashUtil;
 import com.internet.shop.lib.Inject;
 import com.internet.shop.lib.Service;
 import com.internet.shop.models.User;
 import com.internet.shop.service.UserService;
+import com.internet.shop.util.HashUtil;
 import java.util.List;
 import java.util.Optional;
 

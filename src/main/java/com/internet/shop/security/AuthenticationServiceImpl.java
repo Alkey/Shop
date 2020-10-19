@@ -1,11 +1,11 @@
 package com.internet.shop.security;
 
-import com.internet.shop.util.HashUtil;
 import com.internet.shop.exceptions.AuthenticationException;
 import com.internet.shop.lib.Inject;
 import com.internet.shop.lib.Service;
 import com.internet.shop.models.User;
 import com.internet.shop.service.UserService;
+import com.internet.shop.util.HashUtil;
 
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {

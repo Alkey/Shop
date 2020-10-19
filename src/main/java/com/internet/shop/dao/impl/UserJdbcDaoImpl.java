@@ -1,11 +1,11 @@
 package com.internet.shop.dao.impl;
 
 import com.internet.shop.dao.UserDao;
-import com.internet.shop.util.ConnectionUtil;
 import com.internet.shop.exceptions.DataProcessingException;
 import com.internet.shop.lib.Dao;
 import com.internet.shop.models.Role;
 import com.internet.shop.models.User;
+import com.internet.shop.util.ConnectionUtil;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
