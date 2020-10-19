@@ -1,6 +1,6 @@
 # jv-internet-shop
 
-##Application functionality:
+## Application functionality:
 
 * Registration;
 * Login, logout;
@@ -12,7 +12,7 @@
 * View orders;
 * User filtering by RBAC;
 
-##This project used technologies:
+## This project used technologies:
 
 * Java 8;
 * Tomcat;
